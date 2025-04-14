@@ -1,0 +1,75 @@
+<section class="min-h-screen bg-gray-50 py-16 px-6 font-[Manrope]">
+  <div class="max-w-3xl mx-auto">
+    <!-- Titre principal -->
+    <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-[#1d185e] mb-10">
+      Rechercher un objet
+    </h1>
+
+    <!-- Barre de recherche -->
+    <div class="bg-white rounded-xl shadow p-6 flex flex-col sm:flex-row items-stretch gap-4">
+      <input
+        type="text"
+        [(ngModel)]="query"
+        placeholder="Numéro de série, IMEI ou identifiant unique"
+        class="flex-1 border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#1d185e] text-sm"
+      />
+
+      <button
+        (click)="search()"
+        [disabled]="loading || !query.trim()"
+        class="flex items-center justify-center gap-2 bg-[#1d185e] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#141048] transition disabled:opacity-50 text-sm"
+      >
+        <ng-container *ngIf="!loading">Rechercher</ng-container>
+        <ng-container *ngIf="loading">
+          <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+          </svg>
+          <span>Recherche...</span>
+        </ng-container>
+      </button>
+    </div>
+
+    <!-- Résultats ou messages -->
+    <div class="mt-10">
+      <!-- Message d'erreur -->
+      <div *ngIf="error" class="text-red-600 text-center font-medium text-sm mb-4">
+        {{ error }}
+      </div>
+
+      <!-- Aucun résultat trouvé -->
+      <div *ngIf="searched && !loading && results.length === 0" class="text-center text-gray-500 text-sm">
+        Aucun objet trouvé pour <strong>"{{ query }}"</strong>.
+      </div>
+
+      <!-- Résultats -->
+      <div *ngIf="results.length > 0" class="grid gap-6 mt-6">
+        <div
+          *ngFor="let item of results"
+          class="bg-white p-5 rounded-xl shadow border-l-4 border-[#f06575] transition hover:shadow-lg"
+        >
+          <h3 class="text-xl font-bold text-[#1d185e]">{{ item.type }}</h3>
+          <p class="text-gray-600 mt-2 text-sm">{{ item.description }}</p>
+
+          <span
+            class="inline-block mt-3 px-3 py-1 text-sm rounded-full font-medium"
+            [ngClass]="{
+              'bg-green-100 text-green-700': item.found,
+              'bg-yellow-100 text-yellow-700': !item.found
+            }"
+          >
+          {{ item.status === 'Perdu' ? 'Retrouvé' : 'Perdu' }}
+          </span>
+
+          <!-- Infos propriétaire -->
+          <div class="mt-4 border-t pt-4 text-sm text-gray-700 space-y-1">
+            <h4 class="font-bold text-gray-800">Propriétaire</h4>
+            <p><strong>Nom :</strong> {{ item.owner?.full_name }}</p>
+            <p><strong>Email :</strong> {{ item.owner?.email }}</p>
+            <p><strong>Téléphone :</strong> {{ item.owner?.phone }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,101 @@
+<section class="min-h-screen bg-slate-50 py-16 px-6">
+  <div class="max-w-xl mx-auto bg-white shadow-xl rounded-2xl p-8 space-y-6 font-[Manrope]">
+    <h2 class="text-2xl font-bold text-center text-[#1d185e]">Mes informations personnelles</h2>
+
+    <form class="space-y-5" (ngSubmit)="updateProfile()" #profileForm="ngForm">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-2">
+          <label for="last_name" class="text-[#0e141b] font-medium">Nom</label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            [(ngModel)]="user.last_name"
+            required
+            class="h-12 rounded-xl border border-[#d0dbe7] bg-slate-50 px-4 placeholder:text-[#4e7397] focus:outline-none focus:ring-2 focus:ring-[#1d185e]"
+          />
+        </div>
+
+        <div class="flex flex-col gap-2">
+          <label for="first_name" class="text-[#0e141b] font-medium">Prénom</label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            [(ngModel)]="user.first_name"
+            required
+            class="h-12 rounded-xl border border-[#d0dbe7] bg-slate-50 px-4 placeholder:text-[#4e7397] focus:outline-none focus:ring-2 focus:ring-[#1d185e]"
+          />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="email" class="text-[#0e141b] font-medium">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          disabled
+          class="h-12 rounded-xl border border-[#d0dbe7] bg-slate-50 px-4 placeholder:text-[#4e7397] focus:outline-none focus:ring-2 focus:ring-[#1d185e]"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="phone" class="text-[#0e141b] font-medium">Téléphone</label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          [(ngModel)]="user.phone"
+          required
+          class="h-12 rounded-xl border border-[#d0dbe7] bg-slate-50 px-4 placeholder:text-[#4e7397] focus:outline-none focus:ring-2 focus:ring-[#1d185e]"
+        />
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="password" class="text-[#0e141b] font-medium">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          [(ngModel)]="user.password"
+          placeholder="Laisser vide pour ne pas modifier"
+          class="h-12 rounded-xl border border-[#d0dbe7] bg-slate-50 px-4 placeholder:text-[#4e7397] focus:outline-none focus:ring-2 focus:ring-[#1d185e]"
+        />
+      </div>
+      <button
+        type="submit"
+        [disabled]="profileForm.invalid || loading"
+        class="w-full h-12 font-semibold rounded-xl text-sm transition flex justify-center items-center"
+        [ngClass]="{
+          'bg-[#1d185e] text-white hover:bg-[#141048]': !loading,
+          'bg-gray-400 text-white cursor-not-allowed': loading
+        }"
+        attr.aria-busy="{{ loading }}"
+      >
+        <ng-container *ngIf="!loading" >
+          <span class="text-white">Mettre à jour le profil</span>
+        </ng-container>
+        <ng-container *ngIf="loading">
+          <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+          </svg>
+        </ng-container>
+      </button>
+
+    </form>
+
+    <div class="pt-6 border-t border-gray-200">
+      <button
+        type="button"
+        (click)="logout()"
+        class="w-full h-12 border border-[#f06575] text-[#f06575] hover:bg-[#f06575] hover:text-white font-semibold rounded-xl transition"
+      >
+        Se déconnecter
+      </button> 
+    </div>
+  </div>
+</section>

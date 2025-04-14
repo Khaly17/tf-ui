@@ -1,0 +1,70 @@
+<div class="min-h-screen bg-slate-50 flex flex-col px-4 py-6" style="font-family: Inter, 'Noto Sans', sans-serif;">
+  <div class="w-full max-w-3xl mx-auto flex flex-col gap-6">
+
+    <h1 class="text-3xl font-bold text-center text-[#1d185e] mb-10">Enregistrer un objet</h1>
+
+    <form [formGroup]="itemForm" (ngSubmit)="addItem()" class="flex flex-col gap-6">
+
+      <!-- Type d'objet -->
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] text-base font-medium">Type d'objet</label>
+        <select formControlName="type_id"
+          class="h-14 rounded-xl border border-[#d0dbe7] bg-white px-4 text-sm text-[#0e141b] focus:outline-none">
+          <option value="" disabled hidden>Choisir un type</option>
+          <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+        </select>
+
+        <div *ngIf="itemForm.get('type_id')?.invalid && itemForm.get('type_id')?.touched" class="text-red-500 text-sm">Champ requis</div>
+      </div>
+
+      <!-- Nom de l'objet -->
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] text-base font-medium">Nom de l'objet</label>
+        <input formControlName="name" type="text" placeholder="Ex: Mon iPhone 13"
+          class="h-14 rounded-xl border border-[#d0dbe7] bg-white px-4 text-sm text-[#0e141b] placeholder:text-[#4e7397] focus:outline-none" />
+        <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-red-500 text-sm">Champ requis</div>
+      </div>
+
+      <!-- Identifiant unique -->
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] text-base font-medium">Identifiant unique</label>
+        <input formControlName="unique_number" type="text" placeholder="Ex: Numéro IMEI, numéro de carte"
+          class="h-14 rounded-xl border border-[#d0dbe7] bg-white px-4 text-sm text-[#0e141b] placeholder:text-[#4e7397] focus:outline-none" />
+        <div *ngIf="itemForm.get('unique_number')?.invalid && itemForm.get('unique_number')?.touched" class="text-red-500 text-sm">Champ requis</div>
+      </div>
+
+      <!-- Description -->
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] text-base font-medium">Description</label>
+        <textarea formControlName="description" placeholder="Ajoutez une description"
+          class="min-h-[120px] rounded-xl border border-[#d0dbe7] bg-white px-4 py-3 text-sm text-[#0e141b] placeholder:text-[#4e7397] focus:outline-none"></textarea>
+      </div>
+
+      <!-- Boutons -->
+      <div class="flex flex-col sm:flex-row justify-between gap-4 pt-4">
+        <button (click)="goBackToList()" type="button" class="w-full sm:w-auto h-12 px-5 rounded-xl bg-slate-200 text-[#0e141b] font-medium hover:bg-slate-300">
+          ← Retour
+        </button>
+        <button
+          type="submit"
+          [disabled]="itemForm.invalid || isSubmitting"
+          class="w-full sm:w-auto h-12 px-5 rounded-xl font-bold transition duration-200 flex items-center justify-center gap-2"
+          [ngClass]="{
+            'bg-[#1d185e] text-white hover:bg-[#141048]': !isSubmitting,
+            'bg-gray-400 cursor-not-allowed': isSubmitting
+          }"
+        >
+          <ng-container *ngIf="!isSubmitting">Ajouter l'objet</ng-container>
+          <ng-container *ngIf="isSubmitting">
+            <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+          </ng-container>
+        </button>
+
+      </div>
+
+    </form>
+  </div>
+</div>

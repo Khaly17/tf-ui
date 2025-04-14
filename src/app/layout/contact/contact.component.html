@@ -1,0 +1,111 @@
+
+<div class="relative flex size-full min-h-screen flex-col bg-white group/design-root overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+
+      <div class="px-40 flex flex-1 justify-center py-5">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#111418] tracking-light text-[32px] font-bold leading-tight min-w-72">Besoin d'aide ?</p></div>
+          <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4">
+            Pour toute question ou assistance, n'hésitez pas à nous contacter. Nous sommes là pour vous aider.
+          </p>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <input
+                placeholder="Votre nom"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] focus:border-none h-14 placeholder:text-[#637588] p-4 text-base font-normal leading-normal"
+                value=""
+              />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <input
+                placeholder="Votre adresse email"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] focus:border-none h-14 placeholder:text-[#637588] p-4 text-base font-normal leading-normal"
+                value=""
+              />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <input
+                placeholder="Objet de votre demande"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] focus:border-none h-14 placeholder:text-[#637588] p-4 text-base font-normal leading-normal"
+                value=""
+              />
+            </label>
+          </div>
+          <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+            <label class="flex flex-col min-w-40 flex-1">
+              <textarea
+                placeholder="Votre message"
+                class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-[#111418] focus:outline-0 focus:ring-0 border-none bg-[#f0f2f4] focus:border-none min-h-36 placeholder:text-[#637588] p-4 text-base font-normal leading-normal"
+              ></textarea>
+            </label>
+          </div>
+          <div class="flex px-4 py-3 justify-start">
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#f06575] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Envoyer</span>
+            </button>
+          </div>
+          <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Autres moyens de contact</h3>
+          <p class="text-[#111418] text-base font-normal leading-normal pb-3 pt-1 px-4">Vous pouvez également nous joindre directement par email ou par téléphone.</p>
+          <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
+            <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#dce0e5] py-5">
+              <p class="text-[#637588] text-sm font-normal leading-normal">Email</p>
+              <p class="text-[#111418] text-sm font-normal leading-normal"> {{contactEmail}} </p>
+            </div>
+            <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#dce0e5] py-5">
+              <p class="text-[#637588] text-sm font-normal leading-normal">Téléphone</p>
+              <p class="text-[#111418] text-sm font-normal leading-normal">+221 33 822 95 69</p>
+            </div>
+          </div>
+          
+          <h3 class="text-[#111418] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Contact via messagerie instantanée</h3>
+          <div class="@container">
+            <div class="gap-2 px-4 flex flex-wrap justify-start">
+              
+              <!-- WhatsApp -->
+              <a href="https://wa.me/1234567890" target="_blank" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center w-20">
+
+              <div class="flex flex-col items-center gap-2 bg-white py-2.5 text-center w-20">
+                <div class="rounded-full bg-[#f0f2f4] p-2.5">
+                  <svg class="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15s-.767.966-.94 1.165c-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.67-1.611-.917-2.206-.242-.58-.487-.5-.67-.51h-.57c-.173 0-.447.065-.68.298s-.89.868-.89 2.116c0 1.248.911 2.452 1.037 2.625.124.174 1.794 2.73 4.352 3.827.609.263 1.084.42 1.454.537.61.194 1.166.167 1.604.101.489-.073 1.495-.611 1.706-1.2.211-.588.211-1.093.148-1.2-.062-.106-.273-.173-.57-.322z"/>
+                  </svg>
+                </div>
+                <p class="text-[#111418] text-sm font-medium leading-normal">WhatsApp</p>
+              </div>
+              </a>
+
+              <!-- Facebook -->
+              <a href="https://facebook.com/yourpage" target="_blank" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center w-20">
+                <div class="flex flex-col items-center gap-2 bg-white py-2.5 text-center w-20">
+                  <div class="rounded-full bg-[#f0f2f4] p-2.5">
+                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M22.675 0h-21.35C.6 0 0 .6 0 1.325v21.351C0 23.4.6 24 1.325 24H12.82v-9.294H9.692V11.1h3.128V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763V11.1h3.587l-.467 3.606h-3.12V24h6.116C23.4 24 24 23.4 24 22.675V1.325C24 .6 23.4 0 22.675 0z"/>
+                  </svg>
+                </div>
+                <p class="text-[#111418] text-sm font-medium leading-normal">Facebook</p>
+              </div>
+              </a>
+
+              <!-- Support -->
+              <a href="https://support.trackfind.com" target="_blank" class="flex flex-col items-center gap-2 bg-white py-2.5 text-center w-20">
+                <div class="flex flex-col items-center gap-2 bg-white py-2.5 text-center w-20">
+                  <div class="rounded-full bg-[#f0f2f4] p-2.5">
+                    <svg class="w-6 h-6 text-[#f06575]" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636a9 9 0 11-12.728 0m12.728 0a8.959 8.959 0 00-6.364-2.636m6.364 2.636L12 12m0 0l-6.364-6.364M12 12v5" />
+                    </svg>
+                  </div>
+                  <p class="text-[#111418] text-sm font-medium leading-normal">Support</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

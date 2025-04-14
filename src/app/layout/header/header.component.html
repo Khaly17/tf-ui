@@ -1,0 +1,70 @@
+<header class="bg-[#1d185e] shadow-sm sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+    <!-- Logo -->
+    <a routerLink="/" class="flex items-center gap-2">
+      <img src="assets/images/tf-logo.png" alt="Track & Find logo" class="h-10 w-auto rounded-full shadow-sm" />
+      <span class="text-2xl font-bold text-white hidden sm:inline">Track & Find</span>
+    </a>
+
+    <!-- Menu desktop -->
+    <nav class="hidden md:flex gap-4 text-base font-bold">
+      <a routerLink="/" class="hover:text-[#f06575] text-white">Accueil</a>
+      <a routerLink="/search" class="hover:text-[#f06575] text-white">Rechercher</a>
+      <a routerLink="/report" class="hover:text-[#f06575] text-white">Signaler</a>
+      <a href="#faq" class="hover:text-[#f06575] text-white">FAQ</a>
+      <a routerLink="/contact" class="hover:text-[#f06575] text-white">Contact</a>
+    </nav>
+
+    <!-- Profil desktop -->
+    <div *ngIf="isAuthenticated" class="relative hidden md:block">
+      <button (click)="toggleDropdown()" class="flex items-center gap-2 text-white font-semibold">
+        <img src="assets/images/user.png" alt="Profil" class="h-8 w-8 rounded-full border border-white shadow-sm" />
+        <span>Profil</span>
+      </button>
+      <div *ngIf="dropdownVisible" class="absolute right-0 mt-2 w-48 bg-white text-[#1d185e] rounded-xl shadow-lg py-2 z-50">
+        <a routerLink="/user-profile" class="block px-4 py-2 hover:bg-gray-100">Mon profil</a>
+        <a routerLink="/user-dashboard" class="block px-4 py-2 hover:bg-gray-100">Mes objets</a>
+        <button (click)="logout()" class="w-full text-left px-4 py-2 hover:bg-gray-100">Déconnexion</button>
+      </div>
+    </div>
+
+    <!-- Connexion desktop -->
+    <div *ngIf="!isAuthenticated" class="hidden md:block">
+      <button (click)="gotTologin()" class="bg-[#f06575] text-white px-4 py-2 rounded-xl text-sm font-semibold transition">
+        Connexion
+      </button>
+    </div>
+
+    <!-- Avatar + hamburger mobile -->
+    <div class="flex items-center gap-3 md:hidden">
+      <!-- <img *ngIf="isAuthenticated" src="assets/images/avatar-placeholder.png" alt="Avatar" class="h-8 w-8 rounded-full border border-white shadow-sm" /> -->
+      <button (click)="toggleMobileMenu()" class="text-2xl text-white">
+        ☰
+      </button>
+    </div>
+
+  </div>
+
+  <div *ngIf="mobileMenuOpen" class="md:hidden w-full bg-white shadow-md z-40">
+    <nav class="flex flex-col gap-4 p-6 text-sm font-semibold text-[#1d185e]">
+
+      <a routerLink="/" (click)="toggleMobileMenu()" class="hover:text-[#f06575]">Accueil</a>
+      <a routerLink="/search" (click)="toggleMobileMenu()" class="hover:text-[#f06575]">Rechercher</a>
+      <a routerLink="/report" (click)="toggleMobileMenu()" class="hover:text-[#f06575]">Signaler</a>
+      <a href="#faq" (click)="toggleMobileMenu()" class="hover:text-[#f06575]">FAQ</a>
+      <a routerLink="/contact" (click)="toggleMobileMenu()" class="hover:text-[#f06575]">Contact</a>
+
+      <button *ngIf="!isAuthenticated" (click)="gotTologin()" class="bg-[#f06575] text-white px-4 py-2 rounded-xl w-full text-left hover:bg-[#d94c64]">
+        Connexion
+      </button>
+
+      <div *ngIf="isAuthenticated " class="pt-2 border-t border-gray-300 mt-4 flex flex-col gap-2">
+        <a routerLink="/user-profile" (click)="toggleMobileMenu()" class="px-4 py-2 hover:bg-gray-100 rounded-lg">Mon profil</a>
+        <a routerLink="/user-dashboard" (click)="toggleMobileMenu()" class="px-4 py-2 hover:bg-gray-100 rounded-lg">Mes objets</a>
+        <button (click)="logout()" class="w-full text-left px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">Déconnexion</button>
+      </div>
+
+    </nav>
+  </div>
+</header>

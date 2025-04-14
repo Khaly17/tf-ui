@@ -1,0 +1,82 @@
+<section class="min-h-screen bg-slate-50 py-12 px-4 font-[Manrope]">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-[#1d185e] mb-10 text-center">Mon espace personnel</h2>
+
+    <div class="mb-14">
+      <h3 class="text-2xl font-semibold text-[#0e141b] mb-6">Mes objets enregistrés</h3>
+
+      <ng-container *ngIf="objects$ | async as objects; else loadingObjects">
+        <div *ngIf="objects.length === 0" class="text-gray-500 text-sm italic">Aucun objet enregistré.</div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div *ngFor="let obj of objects; trackBy: trackById" class="bg-white rounded-2xl shadow-md p-5 border border-gray-200 hover:shadow-lg transition">
+            <div class="flex justify-between items-center mb-2">
+              <h4 class="text-lg font-bold text-[#1d185e] truncate">{{ obj.name }}</h4>
+              <span
+                class="text-xs font-medium px-3 py-1 rounded-full"
+                [ngClass]="{
+                  'bg-yellow-100 text-yellow-700': obj.status === 'Perdu',
+                  'bg-green-100 text-green-700': obj.status === 'Retrouvé'
+                }"
+              >
+                {{ obj.status }}
+              </span>
+            </div>
+            <p class="text-gray-500 text-xs mb-1"><strong>Identifiant :</strong> {{ obj.unique_number }}</p>
+            <p class="text-gray-600 text-sm line-clamp-1">{{ obj.description }}</p>
+
+            <button
+              (click)="changeStatus(obj)"
+              [disabled]="loadingMap[obj.id]"
+              class="mt-4 w-full text-sm px-4 py-2 rounded-xl text-white transition flex items-center justify-center gap-2"
+              [ngClass]="{
+                'bg-[#1d185e] hover:bg-[#141048]': !loadingMap[obj.id],
+                'bg-gray-400 cursor-not-allowed': loadingMap[obj.id]
+              }"
+            >
+              <ng-container *ngIf="!loadingMap[obj.id]">
+                Marquer comme {{ obj.status === 'Perdu' ? 'Retrouvé' : 'Perdu' }}
+              </ng-container>
+              <ng-container *ngIf="loadingMap[obj.id]">
+                <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+                  <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+                  <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+                </svg>
+                <span>Chargement...</span>
+              </ng-container>
+            </button>
+
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #loadingObjects>
+        <div class="text-gray-500 text-sm">Chargement des objets...</div>
+      </ng-template>
+    </div>
+
+    <div>
+      <h3 class="text-2xl font-semibold text-[#0e141b] mb-6">Mes notifications</h3>
+
+      <ng-container *ngIf="notifications$ | async as notifications; else loadingNotifs">
+        <div *ngIf="notifications.length === 0" class="text-gray-500 text-sm italic">
+          Aucune notification pour le moment.
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            *ngFor="let notif of notifications; trackBy: trackById"
+            class="bg-white p-4 rounded-2xl shadow border border-gray-200 hover:shadow-md transition space-y-2"
+          >
+            <p class="text-gray-700 text-sm leading-snug">{{ notif.message }}</p>
+            <p class="text-gray-400 text-xs">{{ notif.date }}</p>
+          </div>
+        </div>
+      </ng-container>
+
+      <ng-template #loadingNotifs>
+        <div class="text-gray-500 text-sm">Chargement des notifications...</div>
+      </ng-template>
+    </div>
+  </div>
+</section>

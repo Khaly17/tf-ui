@@ -1,0 +1,86 @@
+<div class="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-10" style="font-family: 'Manrope', 'Noto Sans', sans-serif;">
+    <div class="w-full max-w-md bg-white rounded-xl shadow-sm p-6 space-y-6">
+  
+      <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onLogin()"
+      class="w-full max-w-md bg-white rounded-xl shadow-sm p-6 space-y-6"
+      novalidate
+    >
+      <!-- Titre -->
+      <h1 class="text-[#1d185e] text-2xl font-bold text-center">Se connecter</h1>
+  
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] text-base font-medium">Nom d'utilisateur</label>
+        <input
+          type="text"
+          formControlName="email"
+          placeholder="Entrez votre identifiant"
+          class="form-input w-full rounded-xl border border-[#d0dbe7] bg-slate-50 text-[#0e141b] placeholder:text-[#4e7397] h-14 px-4 focus:outline-none focus:border-[#1980e6]"
+          [class.border-red-500]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+        />
+        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-red-500 text-sm">
+          Ce champ est requis.
+        </div>
+      </div>
+  
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] text-base font-medium">Mot de passe</label>
+        <input
+          type="password"
+          formControlName="password"
+          placeholder="Entrez votre mot de passe"
+          class="form-input w-full rounded-xl border border-[#d0dbe7] bg-slate-50 text-[#0e141b] placeholder:text-[#4e7397] h-14 px-4 focus:outline-none focus:border-[#1980e6]"
+          [class.border-red-500]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched"
+        />
+        <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched" class="text-red-500 text-sm">
+          Ce champ est requis.
+        </div>
+      </div>     
+      <div *ngIf="errorMessage" class="text-red-600 text-sm text-center font-medium">
+       {{ errorMessage }}
+     </div>
+  
+      <!-- Checkbox rester connecté -->
+      <div class="flex items-center gap-3">
+        <input
+          type="checkbox"
+          id="remember"
+          class="h-5 w-5 rounded border-[#d0dbe7] text-[#1d185e] focus:ring-0 focus:outline-none"
+        />
+        <label for="remember" class="text-[#0e141b] text-sm">Rester connecté</label>
+      </div>
+  
+      <!-- Bouton connexion -->
+      <div>
+        <button
+          type="submit"
+          [disabled]="isLoading"
+          class="w-full h-12 bg-[#1d185e] text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 transition"
+        >
+          <ng-container *ngIf="!isLoading">Se connecter</ng-container>
+      
+          <ng-container *ngIf="isLoading">
+            <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+            </svg>
+            <span>Connexion...</span>
+          </ng-container>
+        </button>
+      </div>      
+  
+      <!-- Lien mot de passe oublié -->
+      <p class="text-center text-sm text-[#4e7397] underline hover:text-[#1980e6] cursor-pointer">
+        <a routerLink="/forgot-password" class="underline hover:text-[#1d185e]">Mot de passe oublié ?</a>
+        
+      </p>
+      <p class="text-center text-sm text-[#4e7397]">
+        Vous n'avez pas encore de compte ?
+        <a routerLink="/create-account" class="underline hover:text-[#1d185e]">Créer un compte</a>
+      </p>
+    </form>
+  
+    </div>
+  </div>
+  

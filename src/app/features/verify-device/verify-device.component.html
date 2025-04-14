@@ -1,0 +1,63 @@
+<div class="relative min-h-screen bg-slate-50 flex flex-col overflow-x-hidden" style='font-family: "Public Sans", "Noto Sans", sans-serif;'>
+    <div class="w-full max-w-[960px] mx-auto px-4 sm:px-6 lg:px-10 py-5 flex-1 flex flex-col">
+  
+      <!-- HERO vérification -->
+      <div
+        class="flex flex-col items-center justify-center gap-6 bg-cover bg-center bg-no-repeat rounded-xl p-6 md:p-10 min-h-[480px]"
+        style='background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4)), url("https://cdn.usegalileo.ai/sdxl10/4c2d82b6-96e9-493e-88cc-3f9514bf2b70.png");'>
+  
+        <div class="flex flex-col gap-2 text-center">
+          <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">
+            Vérifiez le statut de votre appareil
+          </h1>
+          <h2 class="text-white text-sm sm:text-base font-normal leading-normal">
+            Assurez-vous que l'appareil que vous vous apprêtez à acheter n'a pas été déclaré volé.
+            Entrez le numéro IMEI ou l'adresse MAC.
+          </h2>
+        </div>
+  
+        <!-- Champ de recherche -->
+        <div class="w-full max-w-lg">
+          <label class="flex flex-col w-full h-14 sm:h-16">
+            <div class="flex w-full h-full items-stretch rounded-xl overflow-hidden">
+              <div class="flex items-center justify-center px-3 bg-slate-50 border border-r-0 border-[#d0dbe7] text-[#4e7297]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path
+                    d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z" />
+                </svg>
+              </div>
+  
+              <input
+                placeholder="Numéro IMEI / Adresse MAC"
+                class="flex-1 h-full px-3 text-sm sm:text-base placeholder:text-[#4e7297] bg-slate-50 border border-[#d0dbe7] border-l-0 border-r-0 focus:outline-none"
+              />
+  
+              <div class="flex items-center justify-center bg-[#2884e6] px-4 text-white font-bold text-sm sm:text-base">
+                <button class="h-full w-full">Vérifier</button>
+              </div>
+            </div>
+          </label>
+        </div>
+      </div>
+  
+      <!-- Résultats -->
+      <div class="mt-8 px-2 sm:px-0">
+        <h3 class="text-[#0e141b] text-lg font-bold leading-tight tracking-[-0.015em] mb-2">
+          Résultats
+        </h3>
+        <div class="flex flex-col lg:flex-row gap-4 rounded-xl">
+          <div class="flex flex-col gap-1 flex-1">
+            <p class="text-[#0e141b] text-base font-bold leading-tight">Appareil non signalé</p>
+            <p class="text-[#4e7297] text-sm font-normal leading-normal">
+              Ce téléphone n'a pas été signalé volé. Vous pouvez l'utiliser en toute sécurité.
+            </p>
+          </div>
+          <div
+            class="w-full lg:w-[40%] bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+            style='background-image: url("https://cdn.usegalileo.ai/sdxl10/693f3832-bc0d-4944-b6c4-927de12ef7f5.png");'>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

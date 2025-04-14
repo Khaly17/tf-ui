@@ -1,0 +1,160 @@
+
+<section
+class="relative bg-cover bg-center min-h-[400px] flex items-center justify-center text-center px-6"
+>
+<div class="absolute inset-0 bg-[#1a1a2e]"></div>
+
+<div class="relative z-10 max-w-2xl mx-auto">
+  <h3 class="text-3xl font-bold mb-4 text-white">
+    Sécurisez vos biens. Aidez-nous à récupérer ceux qui sont volés.
+  </h3>
+  <p class="text-white text-lg mt-6 mb-8">
+    Rejoignez notre communauté pour signaler des appareils, véhicules ou documents volés, vérifier si un objet est signalé comme volé et rester en sécurité. Ensemble, nous pouvons faire la différence !
+  </p>
+  <a
+    routerLink="/report"
+    class="bg-[#f06575]  text-white px-6 py-3 rounded-xl text-lg font-semibold transition"
+  >
+  Signaler un objet 
+  </a>
+</div>
+</section>
+
+
+  <section id="fonctionnement" class="bg-gray-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-12 text-[#0e141b]">Pourquoi utiliser Track & Find ?</h3>
+  
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <div class="flex justify-center mb-6">
+            <i class="fas fa-bullhorn fa-2x feature-icon text-[#e94560]"></i> 
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-[#1d185e]">Signalement instantané</h4>
+          <p class="text-gray-600">Signalez facilement vos appareils, véhicules ou documents volés et alertez immédiatement la communauté.</p>
+        </div>
+  
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <div class="flex justify-center mb-6">
+            
+            <i class="fas fa-database fa-2x feature-icon text-[#e94560]"></i> 
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-[#1d185e]">Base de données en temps réel</h4>
+          <p class="text-gray-600">Déclarez un objet trouvé ou perdu en quelques clics via un formulaire simple.</p>
+        </div>
+  
+        <div class="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transition">
+          <div class="flex justify-center mb-6">
+            <i class="fas fa-bell fa-2x feature-icon text-[#e94560]"></i>
+          </div>
+          <h4 class="text-xl font-bold mb-2 text-[#1d185e]">Connexion sécurisée</h4>
+          <p class="text-gray-600">Recevez des alertes si un appareil, véhicule ou document volé est détecté près de chez vous.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Avantages -->
+  <section id="avantages" class="bg-[#1d185e] text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto text-center">
+      <h3 class="text-3xl font-bold mb-12">Notre impact jusqu'à présent</h3>
+  
+      <div class="grid gap-12 md:grid-cols-3 text-center">
+        <!-- Stat 1 -->
+        <div class="flex flex-col items-center">
+          <div class="text-5xl font-extrabold text-yellow-400">+10 000</div>
+          <p class="mt-2 text-lg text-white/80">Objets retrouvés</p>
+        </div>
+  
+        <!-- Stat 2 -->
+        <div class="flex flex-col items-center">
+          <div class="text-5xl font-extrabold text-blue-400">+8 500</div>
+          <p class="mt-2 text-lg text-white/80">Utilisateurs actifs</p>
+        </div>
+  
+        <!-- Stat 3 -->
+        <div class="flex flex-col items-center">
+          <div class="text-5xl font-extrabold text-green-400">95%</div>
+          <p class="mt-2 text-lg text-white/80">Taux de réussite</p>
+        </div>
+      </div>
+  
+      <div class="mt-12 max-w-3xl mx-auto text-white/80 text-lg leading-relaxed">
+        Grâce à l’engagement de notre communauté et à notre technologie de traçabilité, nous avons pu faciliter des milliers de retrouvailles entre les objets et leurs propriétaires, partout au Sénégal.
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Témoignages -->
+  <section class="bg-gray-50 py-20 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center">
+        <h3 class="text-3xl font-bold mb-12">Ce que disent nos utilisateurs</h3>
+  
+        <div class="overflow-x-auto scrollbar-hide">
+          <div class="flex gap-6 md:grid md:grid-cols-3 md:gap-10">
+            <div
+              *ngFor="let t of testimonials"
+              class="min-w-[280px] max-w-sm w-full flex-shrink-0 md:flex-shrink md:w-auto bg-white border border-gray-200 rounded-2xl shadow-sm hover:shadow-md transition-all p-6 text-left"
+            >
+              <div class="flex flex-col">
+                <svg class="h-6 w-6 text-blue-500 mb-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M7.17 11A5.001 5.001 0 0112 6h1V4h-1a7 7 0 00-7 7v2h2v-2zm9 0A5.001 5.001 0 0121 6h1V4h-1a7 7 0 00-7 7v2h2v-2z"/>
+                </svg>
+                <p class="text-gray-700 text-base leading-relaxed mb-6 italic">
+                  “{{ t.quote }}”
+                </p>
+                <div class="text-blue-800 font-semibold text-lg">{{ t.name }}</div>
+                <div class="text-sm text-gray-500">{{ t.role }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- FAQ -->
+  <app-faq></app-faq>
+
+  <section class="bg-[#1d185e] py-20 px-6 text-white text-center">
+    <ng-container *ngIf="!isAuthenticated; else connected">
+      <h3 class="text-3xl font-bold mb-4">Prêt à retrouver votre objet ?</h3>
+      <p class="text-lg mb-8">Inscrivez-vous dès maintenant et rejoignez la communauté Track & Find.</p>
+      <a routerLink="/create-account" class="bg-white text-[#1d185e] font-semibold px-8 py-3 rounded-xl text-lg hover:bg-gray-100 transition">
+        Créer un compte
+      </a>
+    </ng-container>
+  
+    <ng-template #connected>
+      <h3 class="text-3xl font-bold mb-4">Merci de faire partie de notre communauté !</h3>
+      <p class="text-lg mb-8">Vous pouvez maintenant signaler ou rechercher un objet perdu.</p>
+      <a routerLink="/user-dashboard" class="bg-white text-[#1d185e] font-semibold px-8 py-3 rounded-xl text-lg hover:bg-gray-100 transition">
+        Aller à mon espace
+      </a>
+    </ng-template>
+  </section>
+  
+
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10">
+      <div class="text-center md:text-left">
+        <h3 class="text-3xl font-bold mb-4 text-[#1d185e]">Téléchargez l'application Track & Find</h3>
+        <p class="text-gray-600 text-lg">Disponible dès maintenant sur Android et iOS pour signaler et retrouver vos objets partout, à tout moment.</p>
+      </div>
+  
+      <div class="flex gap-4 justify-center">
+        <a href="#" target="_blank">
+          <img src="assets/images/google-play.png" alt="Disponible sur Google Play" class="h-14 w-auto" />
+        </a>
+        <a href="#" target="_blank">
+          <img src="assets/images/apple-store.svg" alt="Disponible sur l'App Store" class="h-14 w-auto" />
+        </a>
+      </div>
+    </div>
+  </section>
+  

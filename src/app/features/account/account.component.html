@@ -1,0 +1,85 @@
+<div class="min-h-screen flex items-center justify-center bg-slate-50 px-4 py-10 font-[Manrope]">
+  <div class="w-full max-w-xl bg-white rounded-2xl shadow-lg p-8 space-y-6">
+
+    <h1 class="text-[#1d185e] text-3xl font-bold text-center">Créer un compte</h1>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onRegister()" class="space-y-5">
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-2">
+          <label class="text-[#0e141b] font-medium">Nom</label>
+          <input type="text" formControlName="last_name" placeholder="Ex : Ndiaye"
+            class="h-12 rounded-xl border px-4 bg-slate-50 focus:outline-none focus:ring-2"
+            [class.border-red-500]="registerForm.get('last_name')?.invalid && registerForm.get('last_name')?.touched">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-[#0e141b] font-medium">Prénom</label>
+          <input type="text" formControlName="first_name" placeholder="Ex : Fatou"
+            class="h-12 rounded-xl border px-4 bg-slate-50 focus:outline-none focus:ring-2"
+            [class.border-red-500]="registerForm.get('first_name')?.invalid && registerForm.get('first_name')?.touched">
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] font-medium">Adresse e-mail</label>
+        <input type="email" formControlName="email" placeholder="exemple@email.com"
+          class="h-12 rounded-xl border px-4 bg-slate-50 focus:outline-none focus:ring-2"
+          [class.border-red-500]="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label class="text-[#0e141b] font-medium">Téléphone</label>
+        <input type="tel" formControlName="phone" placeholder="77 000 00 00"
+          class="h-12 rounded-xl border px-4 bg-slate-50 focus:outline-none focus:ring-2"
+          [class.border-red-500]="registerForm.get('phone')?.invalid && registerForm.get('phone')?.touched">
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="flex flex-col gap-2">
+          <label class="text-[#0e141b] font-medium">Mot de passe</label>
+          <input type="password" formControlName="password" placeholder="Créer un mot de passe"
+            class="h-12 rounded-xl border px-4 bg-slate-50 focus:outline-none focus:ring-2"
+            [class.border-red-500]="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+        </div>
+        <div class="flex flex-col gap-2">
+          <label class="text-[#0e141b] font-medium">Confirmation</label>
+          <input type="password" formControlName="confirm_password" placeholder="Confirmez le mot de passe"
+            class="h-12 rounded-xl border px-4 bg-slate-50 focus:outline-none focus:ring-2"
+            [class.border-red-500]="registerForm.get('confirm_password')?.invalid && registerForm.get('confirm_password')?.touched">
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <input type="checkbox" formControlName="acceptTerms"
+          class="h-5 w-5 rounded border-[#d0dbe7] text-[#1d185e] focus:ring-[#1d185e] focus:ring-1" />
+        <label class="text-sm text-[#0e141b]">J’accepte les <a routerLink="/terms-of-uses" class="text-[#f06575] underline">conditions d’utilisation</a></label>
+      </div>
+
+      <div *ngIf="errorMessage" class="text-red-600 text-center text-sm font-medium">{{ errorMessage }}</div>
+      <div *ngIf="successMessage" class="text-green-600 text-center text-sm font-medium">{{ successMessage }}</div>
+
+      <button
+      type="submit"
+      [disabled]="isLoading || registerForm.invalid"
+      class="w-full h-12 bg-[#1d185e] hover:bg-[#141048] text-white font-semibold rounded-xl text-sm transition flex items-center justify-center gap-2"
+    >
+      <ng-container *ngIf="!isLoading">Créer le compte</ng-container>
+    
+      <ng-container *ngIf="isLoading">
+        <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" />
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z" />
+        </svg>
+        <span>Création du compte...</span>
+      </ng-container>
+    </button>
+    
+    </form>
+
+    <p class="text-center text-sm text-[#4e7397]">
+      Vous avez déjà un compte ?
+      <a routerLink="/login" class="underline hover:text-[#1d185e]">Connectez-vous</a>
+    </p>
+
+  </div>
+</div>
