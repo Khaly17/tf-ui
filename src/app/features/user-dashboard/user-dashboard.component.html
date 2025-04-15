@@ -22,7 +22,11 @@
                 {{ obj.status }}
               </span>
             </div>
-            <p class="text-gray-500 text-xs mb-1"><strong>Identifiant :</strong> {{ obj.unique_number }}</p>
+            <p class="text-gray-500 text-xs mb-1">
+              <strong>Identifiant :</strong>
+              {{ obj.unique_number ? obj.unique_number : 'Indisponible' }}
+            </p>
+            
             <p class="text-gray-600 text-sm line-clamp-1">{{ obj.description }}</p>
 
             <button

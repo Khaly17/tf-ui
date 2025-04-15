@@ -1,16 +1,22 @@
 <section class="min-h-screen bg-gray-50 py-16 px-6 font-[Manrope]">
   <div class="max-w-3xl mx-auto">
-    <!-- Titre principal -->
-    <h1 class="text-3xl sm:text-4xl font-extrabold text-center text-[#1d185e] mb-10">
-      Rechercher un objet
-    </h1>
-
+    <div class="text-center mb-10">
+      <h1 class="text-xl sm:text-xl font-extrabold text-[#1d185e] mb-2">
+        Rechercher dans la base des objets volés
+      </h1>
+      <p class="text-sm text-gray-600 max-w-md mx-auto">
+        Utilisez le formulaire ci-dessous pour rechercher des appareils, véhicules ou documents signalés comme volés.
+        Entrez un numéro de série, une adresse mac ou un identifiant unique pour rechercher un objet déclaré volé.
+      </p>
+    </div>
+    
+    
     <!-- Barre de recherche -->
     <div class="bg-white rounded-xl shadow p-6 flex flex-col sm:flex-row items-stretch gap-4">
       <input
         type="text"
         [(ngModel)]="query"
-        placeholder="Numéro de série, IMEI ou identifiant unique"
+        placeholder="Numéro de série, adresse mac ou identifiant unique"
         class="flex-1 border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-[#1d185e] text-sm"
       />
 
