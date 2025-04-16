@@ -11,22 +11,22 @@ import { Component } from '@angular/core';
 export class FaqComponent {
   faqs = [
     {
-      question: "Qu’est-ce que Track & Find ?",
+      question: "Qu’est-ce que Waalu ?",
       answer:
-        "Track & Find est une plateforme sécurisée qui permet aux utilisateurs de déclarer, rechercher et suivre des objets perdus ou retrouvés, comme les téléphones, cartes d'identité, passeports ou autres documents importants."
+        "Waalu est une plateforme sécurisée qui permet aux utilisateurs de déclarer, rechercher et suivre des objets perdus ou retrouvés, comme les téléphones, cartes d'identité, passeports ou autres documents importants."
     },
     {
       question: "Puis-je vérifier la légitimité d’un objet avant de l’acheter ?",
       answer:
-        "Oui, c’est même l’un des objectifs principaux de Track & Find. Avant d’acheter un objet (téléphone, ordinateur, carte d'identité, etc.), vous pouvez rechercher son numéro de série, IMEI ou identifiant unique sur la plateforme. S’il a été déclaré volé ou perdu, vous serez averti immédiatement. Cela protège les acheteurs contre les arnaques et garantit des transactions plus sûres."
+        "Oui, c’est même l’un des objectifs principaux de Waalu. Avant d’acheter un objet (téléphone, ordinateur, carte d'identité, etc.), vous pouvez rechercher son numéro de série, IMEI ou identifiant unique sur la plateforme. S’il a été déclaré volé ou perdu, vous serez averti immédiatement. Cela protège les acheteurs contre les arnaques et garantit des transactions plus sûres."
     },
     {
-      question: "Quels objets peut-on enregistrer sur Track & Find ?",
+      question: "Quels objets peut-on enregistrer sur Waalu ?",
       answer:
         "Vous pouvez enregistrer tout objet avec un identifiant unique, comme les téléphones (IMEI), cartes nationales d’identité, passeports, permis de conduire, certificats, etc."
     },
     {
-      question: "Puis-je utiliser Track & Find sans créer de compte ?",
+      question: "Puis-je utiliser Waalu sans créer de compte ?",
       answer:
         "La recherche d’un objet est possible sans compte. Toutefois, pour déclarer un objet perdu ou recevoir des notifications, vous devez être inscrit."
     },
@@ -38,7 +38,7 @@ export class FaqComponent {
     {
       question: "Puis-je déclarer un objet retrouvé ?",
       answer:
-        "Oui. Track & Find permet également de déclarer un objet trouvé, ce qui aide à reconnecter l’objet à son propriétaire légitime via une recherche croisée sécurisée."
+        "Oui. Waalu permet également de déclarer un objet trouvé, ce qui aide à reconnecter l’objet à son propriétaire légitime via une recherche croisée sécurisée."
     },
     {
       question: "Que se passe-t-il si quelqu’un recherche mon objet perdu ?",
@@ -48,10 +48,10 @@ export class FaqComponent {
     {
       question: "Existe-t-il une application mobile ?",
       answer:
-        "Oui ! Track & Find est disponible en version mobile pour Android. Elle offre une expérience fluide et optimisée pour vous permettre de déclarer, rechercher ou recevoir des notifications à tout moment."
+        "Oui ! Waalu est disponible en version mobile pour Android. Elle offre une expérience fluide et optimisée pour vous permettre de déclarer, rechercher ou recevoir des notifications à tout moment."
     },
     {
-      question: "Track & Find fonctionne-t-il uniquement au Sénégal ?",
+      question: "Waalu fonctionne-t-il uniquement au Sénégal ?",
       answer:
         "La plateforme est actuellement centrée sur le Sénégal, mais son architecture permet un déploiement rapide dans d'autres pays africains à moyen terme."
     },
@@ -68,7 +68,7 @@ export class FaqComponent {
     {
       question: "Combien coûte l’utilisation de la plateforme ?",
       answer:
-        "L’utilisation basique de Track & Find est gratuite. Des services premium pour les professionnels ou institutions sont en cours de développement."
+        "L’utilisation basique de Waalu est gratuite. Des services premium pour les professionnels ou institutions sont en cours de développement."
     }
   ];
   

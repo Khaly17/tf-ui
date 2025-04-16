@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './mentions-legales.component.scss'
 })
 export class MentionsLegalesComponent {
-contactEmail: string = "support@trackandfind.sn"
+contactEmail: string = "support@waalu.sn"
 }

@@ -9,5 +9,5 @@ import { Component } from '@angular/core';
 })
 export class TermsOfUseComponent {
 
-contactEmail: string = "support@trackandfind.sn"
+contactEmail: string = "support@waalu.sn"
 }
