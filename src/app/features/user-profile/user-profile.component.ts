@@ -2,15 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../core/auth/auth.service';
-import { UserService } from '../../core/services/user.service';
-
-interface UserProfile {
-  first_name: string;
-  last_name: string;
-  email: string;
-  phone: string;
-  password?: string;
-}
+import { UserService, UserProfile } from '../../core/services/user.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -29,6 +21,7 @@ export class UserProfileComponent implements OnInit {
   };
 
   loading = false;
+  editMode = false;
 
   constructor(
     private readonly authService: AuthService,
@@ -43,7 +36,7 @@ export class UserProfileComponent implements OnInit {
     this.loading = true;
     this.userService.getUserInfos().subscribe({
       next: (data: UserProfile) => {
-        this.user = { ...data, password: '' }; 
+        this.user = { ...data, password: '' };
         this.loading = false;
       },
       error: (err) => {
@@ -56,17 +49,17 @@ export class UserProfileComponent implements OnInit {
   updateProfile(): void {
     const updatedData = { ...this.user };
     if (!updatedData.password) delete updatedData.password;
-    this.loading = true;
 
+    this.loading = true;
     this.userService.updateUser(updatedData).subscribe({
       next: () => {
         this.user.password = '';
+        this.editMode = false;
         this.loading = false;
       },
       error: (err) => {
         console.error('Erreur mise à jour profil :', err);
         this.loading = false;
-
       }
     });
   }

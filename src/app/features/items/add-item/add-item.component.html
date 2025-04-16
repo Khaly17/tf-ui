@@ -1,64 +1,71 @@
-<div class="min-h-screen bg-slate-50 flex flex-col px-4 py-6" style="font-family: Inter, 'Noto Sans', sans-serif;">
-  <div class="w-full max-w-3xl mx-auto flex flex-col gap-6">
+<section class="min-h-screen bg-gradient-to-b from-slate-50 to-white py-16 px-4 font-[Manrope]">
+  <div class="max-w-2xl mx-auto bg-white shadow-2xl rounded-3xl px-8 py-10 space-y-8 border border-gray-200">
 
-    <div class="text-center mb-8">
-      <h1 class="text-2xl font-bold text-[#1d185e] mb-2">Enregistrer un objet</h1>
-      <p class="text-sm text-gray-600 max-w-md mx-auto">
-        Gardez un enregistrement sécurisé de vos objets. En cas de perte, vous disposerez de toutes les informations nécessaires pour le signaler rapidement.
+    <!-- En-tête -->
+    <div class="text-center">
+      <h1 class="text-3xl font-extrabold text-[#1d185e] mb-3">Enregistrer un nouvel objet</h1>
+      <p class="text-sm text-gray-600">
+        Sauvegardez vos objets précieux pour les retrouver plus facilement en cas de perte.
       </p>
     </div>
-    
-    <form [formGroup]="itemForm" (ngSubmit)="addItem()" class="flex flex-col gap-6">
 
-      <!-- Type d'objet -->
-      <div class="flex flex-col gap-2">
-        <label class="text-[#0e141b] text-base font-medium">Type d'objet</label>
+    <!-- Formulaire -->
+    <form [formGroup]="itemForm" (ngSubmit)="addItem()" class="space-y-6">
+
+      <!-- Type -->
+      <div>
+        <label class="block text-sm font-semibold text-[#0e141b] mb-1">Type d'objet <span class="text-red-500">*</span></label>
         <select formControlName="type_id"
-          class="h-14 rounded-xl border border-[#d0dbe7] bg-white px-4 text-sm text-[#0e141b] focus:outline-none">
+          class="w-full h-12 rounded-xl border border-gray-300 bg-white px-4 text-sm focus:outline-none focus:ring-2 focus:ring-[#1d185e]">
           <option value="" disabled hidden>Choisir un type</option>
           <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
         </select>
-
-        <div *ngIf="itemForm.get('type_id')?.invalid && itemForm.get('type_id')?.touched" class="text-red-500 text-sm">Champ requis</div>
+        <p *ngIf="itemForm.get('type_id')?.invalid && itemForm.get('type_id')?.touched" class="text-sm text-red-500 mt-1">
+          Ce champ est requis.
+        </p>
       </div>
 
-      <!-- Nom de l'objet -->
-      <div class="flex flex-col gap-2">
-        <label class="text-[#0e141b] text-base font-medium">Nom de l'objet</label>
-        <input formControlName="name" type="text" placeholder="Ex: Mon iPhone 13"
-          class="h-14 rounded-xl border border-[#d0dbe7] bg-white px-4 text-sm text-[#0e141b] placeholder:text-[#4e7397] focus:outline-none" />
-        <div *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-red-500 text-sm">Champ requis</div>
+      <!-- Nom -->
+      <div>
+        <label class="block text-sm font-semibold text-[#0e141b] mb-1">Nom de l'objet <span class="text-red-500">*</span></label>
+        <input type="text" formControlName="name" placeholder="Ex: Carte d'identité nationale"
+          class="w-full h-12 rounded-xl border border-gray-300 px-4 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1d185e]" />
+        <p *ngIf="itemForm.get('name')?.invalid && itemForm.get('name')?.touched" class="text-sm text-red-500 mt-1">
+          Ce champ est requis.
+        </p>
       </div>
 
-      <!-- Identifiant unique -->
-      <div class="flex flex-col gap-2">
-        <label class="text-[#0e141b] text-base font-medium">Identifiant unique</label>
-        <input formControlName="unique_number" type="text" placeholder="Ex: Numéro IMEI, numéro de carte"
-          class="h-14 rounded-xl border border-[#d0dbe7] bg-white px-4 text-sm text-[#0e141b] placeholder:text-[#4e7397] focus:outline-none" />
-        <div *ngIf="itemForm.get('unique_number')?.invalid && itemForm.get('unique_number')?.touched" class="text-red-500 text-sm">Champ requis</div>
+      <!-- Identifiant -->
+      <div>
+        <label class="block text-sm font-semibold text-[#0e141b] mb-1">Identifiant unique <span class="text-red-500">*</span></label>
+        <input type="text" formControlName="unique_number" placeholder="Ex: IMEI, n° de série, carte"
+          class="w-full h-12 rounded-xl border border-gray-300 px-4 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1d185e]" />
+        <p *ngIf="itemForm.get('unique_number')?.invalid && itemForm.get('unique_number')?.touched" class="text-sm text-red-500 mt-1">
+          Ce champ est requis.
+        </p>
       </div>
 
       <!-- Description -->
-      <div class="flex flex-col gap-2">
-        <label class="text-[#0e141b] text-base font-medium">Description</label>
-        <textarea formControlName="description" placeholder="Ajoutez une description"
-          class="min-h-[120px] rounded-xl border border-[#d0dbe7] bg-white px-4 py-3 text-sm text-[#0e141b] placeholder:text-[#4e7397] focus:outline-none"></textarea>
+      <div>
+        <label class="block text-sm font-semibold text-[#0e141b] mb-1">Description</label>
+        <textarea formControlName="description" rows="4" placeholder="Détails utiles (couleur, marque, etc.)"
+          class="w-full rounded-xl border border-gray-300 px-4 py-3 bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[#1d185e]"></textarea>
       </div>
 
       <!-- Boutons -->
-      <div class="flex flex-col sm:flex-row justify-between gap-4 pt-4">
-        <button (click)="goBackToList()" type="button" class="w-full sm:w-auto h-12 px-5 rounded-xl bg-slate-200 text-[#0e141b] font-medium hover:bg-slate-300">
+      <div class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6">
+        <button type="button" (click)="goBackToList()"
+          class="w-full sm:w-auto h-11 px-6 rounded-xl bg-gray-100 hover:bg-gray-200 text-sm font-semibold text-gray-800 transition">
           ← Retour
         </button>
-        <button
-          type="submit"
+
+        <button type="submit"
           [disabled]="itemForm.invalid || isSubmitting"
-          class="w-full sm:w-auto h-12 px-5 rounded-xl font-bold transition duration-200 flex items-center justify-center gap-2"
+          class="w-full sm:w-auto h-11 px-6 rounded-xl font-bold flex items-center justify-center gap-2 transition duration-200"
           [ngClass]="{
             'bg-[#1d185e] text-white hover:bg-[#141048]': !isSubmitting,
-            'bg-gray-400 cursor-not-allowed': isSubmitting
-          }"
-        >
+            'bg-gray-400 text-gray-100 cursor-not-allowed': isSubmitting
+          }">
           <ng-container *ngIf="!isSubmitting">Ajouter l'objet</ng-container>
           <ng-container *ngIf="isSubmitting">
             <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24" fill="none">
@@ -67,9 +74,8 @@
             </svg>
           </ng-container>
         </button>
-
       </div>
-
     </form>
+
   </div>
-</div>
+</section>
