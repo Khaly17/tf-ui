@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'tf-ui';
+  title = 'TROQV';
   isLoading: boolean = true;
 
   ngAfterViewInit() {
