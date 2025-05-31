@@ -14,12 +14,12 @@
         <label class="text-[#0e141b] text-base font-medium">Nom d'utilisateur</label>
         <input
           type="text"
-          formControlName="email"
+          formControlName="identifier"
           placeholder="Entrez votre identifiant"
           class="form-input w-full rounded-xl border border-[#d0dbe7] bg-slate-50 text-[#0e141b] placeholder:text-[#4e7397] h-14 px-4 focus:outline-none focus:border-[#1980e6]"
-          [class.border-red-500]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          [class.border-red-500]="loginForm.get('identifier')?.invalid && loginForm.get('identifier')?.touched"
         />
-        <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched" class="text-red-500 text-sm">
+        <div *ngIf="loginForm.get('identifier')?.invalid && loginForm.get('identifier')?.touched" class="text-red-500 text-sm">
           Ce champ est requis.
         </div>
       </div>

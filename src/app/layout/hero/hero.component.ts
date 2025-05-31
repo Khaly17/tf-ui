@@ -22,7 +22,7 @@ export class HeroComponent {
       name: 'Fatou Ndiaye',
       role: 'Étudiante à Dakar',
       quote:
-        "J'ai retrouvé mon téléphone grâce à Waalu. C’est rapide et rassurant. Merci à cette belle initiative !",
+        "J'ai retrouvé mon téléphone grâce à TROQV. C’est rapide et rassurant. Merci à cette belle initiative !",
     },
     {
       name: 'Moussa Diop',

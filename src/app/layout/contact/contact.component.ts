@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule, FormBuilder, FormGroup, Validators } 
 })
 export class ContactComponent {
   contactForm: FormGroup;
-  contactEmail: string = "support@trackandfin.sn"
+  contactEmail: string = "support@troqv.sn"
   loading: boolean = false;
   success: boolean = false;
   constructor(private fb: FormBuilder) {

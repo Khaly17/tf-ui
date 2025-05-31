@@ -25,14 +25,14 @@ export class LoginComponent {
 
   constructor(private fb: FormBuilder) {
     this.loginForm = this.fb.group({
-      email: ['', Validators.required],
+      identifier: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
   user_id: number = 0;
 
   
-  email: string = '';
+  identifier: string = '';
 
   password: string = '';
 
@@ -44,9 +44,16 @@ export class LoginComponent {
         return;
     }
 
-    const { email, password } = this.loginForm.value;    
+    const { identifier, password } = this.loginForm.value;  
+    
+    let processedIdentifier = identifier;
+    const isPhone = /^\d{7,15}$/.test(identifier);  
+
+    if (isPhone && !identifier.startsWith('+')) {
+      processedIdentifier = '+221' + identifier;
+    }
     this.isLoading = true;
-    this.authService.login(email, password).subscribe({
+    this.authService.login(processedIdentifier, password).subscribe({
         next: (response) => {
             if (response.access_token) {
               
