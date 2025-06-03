@@ -13,6 +13,8 @@ import { FaqComponent } from '../faq/faq.component';
 })
 export class HeroComponent {
   isAuthenticated = false;
+  google_url = "https://play.google.com/store/apps/details?id=com.troqv.app";
+  apple_url = "https://play.google.com/store/apps/details?id=com.troqv.app";
   constructor(private tokenService: TokenService){}
   ngOnInit() {
     this.isAuthenticated = this.tokenService.isTokenValid();
