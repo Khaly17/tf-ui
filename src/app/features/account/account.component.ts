@@ -43,11 +43,19 @@ export class AccountComponent {
       return;
     }
 
+     
+    
+    let processedIdentifier = form.phone;
+    const isPhone = /^\d{7,15}$/.test(form.phone);  
+
+    if (isPhone && !form.phone.startsWith('+')) {
+      processedIdentifier = '+221' + form.phone;
+    }
     const payload = {
       first_name: form.first_name,
       last_name: form.last_name,
       email: form.email,
-      phone: form.phone,
+      phone: processedIdentifier,
       password: form.password
     };
 
