@@ -20,12 +20,13 @@
     <!-- Header utilisateur avec initiales -->
     <div *ngIf="isAuthenticated && user" class="relative hidden md:block">
       <button (click)="toggleDropdown()" class="flex items-center gap-2 text-white font-semibold focus:outline-none">
+        
+        <span>{{user.first_name}} {{user.last_name}}</span>
         <div
           class="h-8 w-8 rounded-full bg-white text-[#1d185e] font-bold flex items-center justify-center border border-white shadow-sm text-sm uppercase"
         >
           {{ getInitials(user.first_name, user.last_name) }}
         </div>
-        <span>Profil</span>
       </button>
       
       <div *ngIf="dropdownVisible" class="absolute right-0 mt-2 w-48 bg-white text-[#1d185e] rounded-xl shadow-lg py-2 z-50">
