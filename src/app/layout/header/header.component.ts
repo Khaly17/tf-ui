@@ -27,10 +27,10 @@ export class HeaderComponent {
   constructor(private eRef: ElementRef, private router: Router, private authService: AuthService, 
     private readonly userService: UserService) {}
   ngOnInit() {
+    this.fetchUserProfile();
     this.authService.authStatus$.subscribe((status) => {
       this.isAuthenticated = status;
     });
-    this.fetchUserProfile();
   }
 
   gotTologin(){
