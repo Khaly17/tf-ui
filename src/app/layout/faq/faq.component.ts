@@ -65,11 +65,11 @@ export class FaqComponent {
       answer:
         "Cliquez sur 'Mot de passe oublié' à la connexion. Un lien de réinitialisation vous sera envoyé par email."
     },
-    {
-      question: "Combien coûte l’utilisation de la plateforme ?",
-      answer:
-        "L’utilisation basique de TROQV est gratuite. Des services premium pour les professionnels ou institutions sont en cours de développement."
-    }
+    // {
+    //   question: "Combien coûte l’utilisation de la plateforme ?",
+    //   answer:
+    //     "L’utilisation basique de TROQV est gratuite. Des services premium pour les professionnels ou institutions sont en cours de développement."
+    // }
   ];
   
   
